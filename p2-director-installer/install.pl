@@ -3,11 +3,10 @@
 use warnings;
 use strict;
 use subs qw( print_usage );
+use vars qw( $BUILDDIR $DESTDIR $POOLDIR );
 use YAML ( );
 
-my $BUILDDIR='/home/jest/miszmasz/p2-director/builder';
-my $DESTSDIR='/home/jest/miszmasz/p2-director/dest';
-my $POOLDIR='/home/jest/miszmasz/p2-director/pool';
+do 'local.config';
 
 my %cmd_templates = (
 	install => <<'_EOT_',
