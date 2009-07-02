@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 use subs qw( print_usage );
-use vars qw( $BUILDDIR $DESTDIR $POOLDIR );
+use vars qw( $BUILDDIR $DESTSDIR $POOLDIR );
 use YAML ( );
 
 do 'local.config';
