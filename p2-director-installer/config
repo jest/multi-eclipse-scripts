@@ -1,0 +1,64 @@
+versions:
+  3.4:
+    artifacts: http://download.eclipse.org/eclipse/updates/3.4
+    metadata: http://download.eclipse.org/eclipse/updates/3.4
+  3.5:
+    artifacts: http://download.eclipse.org/releases/galileo
+    metadata: http://download.eclipse.org/releases/galileo
+  3.5milestones:
+    artifacts: http://download.eclipse.org/eclipse/updates/3.5milestones
+    metadata: http://download.eclipse.org/eclipse/updates/3.5milestones
+packages:
+  Eclipse Platform:
+    iu: org.eclipse.platform.ide
+    profile: PlatformProfile
+  Eclipse SDK:
+    iu: org.eclipse.sdk.ide
+    profile: SDKProfile
+  CDT:
+    iu: org.eclipse.cdt.feature.group
+  PDT:
+    iu: org.eclipse.php.sdk
+  Mylyn basic:
+    iu: org.eclipse.mylyn_feature.feature.group,org.eclipse.mylyn.ide_feature.feature.group,org.eclipse.mylyn.context_feature.feature.group,org.eclipse.mylyn.wikitext_feature.feature.group,org.eclipse.mylyn.team_feature.feature.group
+  Mylyn Trac:
+    iu: org.eclipse.mylyn.trac_feature.feature.group
+    artifacts: http://download.eclipse.org/tools/mylyn/update/extras
+    metadata: http://download.eclipse.org/tools/mylyn/update/extras
+  Mylyn Java:
+    iu: org.eclipse.mylyn.java_feature.feature.group
+  Mylyn C++:
+    iu: org.eclipse.cdt.mylyn.feature.group
+  Mylyn PDE:
+    iu: org.eclipse.mylyn.pde_feature.feature.group
+  Mylyn DLTK:
+    iu: org.eclipse.dltk.mylyn.feature.group
+  Mylyn SVN:
+    iu: org.eclipse.team.svn.mylyn.feature.group
+  XML editors and tools:
+    iu: org.eclipse.wst.xml_ui.feature.feature.group
+  XSL developer tools:
+    iu: org.eclipse.wst.xsl.feature.feature.group
+  JDT:
+    iu: org.eclipse.jdt.feature.group
+  wordwrap:
+    iu: com.ahtik.wordwrap.feature.group
+    artifacts: http://ahtik.com/eclipse-update/
+    metadata: http://ahtik.com/eclipse-update/
+  texlipse:
+    iu: net.sourceforge.texlipse.feature.group
+    artifacts: http://texlipse.sourceforge.net/
+    metadata: http://texlipse.sourceforge.net/
+  meta:documenting:
+    depends:
+      install:
+        - Eclipse Platform
+      add:
+        - Mylyn basic
+        - Mylyn Trac
+        - XML editors and tools
+        - XSL developer tools
+        - wordwrap
+        - texlipse
+
+# jedit :mode=yaml:tabSize=2:indentSize=2:noTabs=true:
