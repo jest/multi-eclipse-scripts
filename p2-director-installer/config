@@ -60,5 +60,7 @@ packages:
         - XSL developer tools
         - wordwrap
         - texlipse
+  MTJ:
+    iu: org.eclipse.mtj.feature.group
 
 # jedit :mode=yaml:tabSize=2:indentSize=2:noTabs=true:
