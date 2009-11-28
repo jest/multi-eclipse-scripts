@@ -62,5 +62,9 @@ packages:
         - texlipse
   MTJ:
     iu: org.eclipse.mtj.feature.group
+  pydev:
+    iu: org.python.pydev.feature.feature.group
+    artifacts: http://pydev.org/updates
+    metadata:  http://pydev.org/updates
 
 # jedit :mode=yaml:tabSize=2:indentSize=2:noTabs=true:
