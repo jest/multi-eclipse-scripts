@@ -49,6 +49,10 @@ packages:
     iu: net.sourceforge.texlipse.feature.group
     artifacts: http://texlipse.sourceforge.net/
     metadata: http://texlipse.sourceforge.net/
+  EPIC:
+    iu: org.epic.feature.main.feature.group
+    artifacts: http://e-p-i-c.sf.net/updates/testing/
+    metadata: http://e-p-i-c.sf.net/updates/testing/
   meta:documenting:
     depends:
       install:
