@@ -15,5 +15,5 @@ assert_no_ext $name;
 `echo 'path=$ext_dir/$name' >$ext_dir/$name/self.link`;
 `touch $ext_dir/$name/eclipse/.eclipseextension`;
 
-system "perl run_extension.pl $name";
+system "perl $FindBin::Bin/run_extension.pl $name";
 
