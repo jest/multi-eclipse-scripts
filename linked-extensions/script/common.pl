@@ -3,9 +3,9 @@
 use warnings;
 use strict;
 
-use FindBin;
+use Cwd qw( getcwd );
 use vars qw( $self_dir $ext_dir $prog_dir );
-$self_dir = "$FindBin::Bin";
+$self_dir = getcwd;
 $ext_dir = "$self_dir/extensions";
 $prog_dir = "$self_dir/programs"; 
 

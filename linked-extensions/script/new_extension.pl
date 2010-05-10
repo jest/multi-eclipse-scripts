@@ -3,7 +3,8 @@
 use warnings;
 use strict;
 
-BEGIN { require "./common.pl"; }
+use FindBin;
+BEGIN { require "$FindBin::Bin/common.pl"; }
 
 my ($name) = @ARGV;
 die "Usage: $0 name" unless defined $name;
