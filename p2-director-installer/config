@@ -70,5 +70,22 @@ packages:
     iu: org.python.pydev.feature.feature.group
     artifacts: http://pydev.org/updates
     metadata:  http://pydev.org/updates
+  Subversive base:
+    iu: org.eclipse.team.svn.feature.group,org.eclipse.team.svn.ui.capabilities.feature.group,org.polarion.eclipse.team.svn.connector.feature.group
+  Subversive JDT:
+    iu: org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group
+  Subversive Mylyn:
+    iu: org.eclipse.team.svn.mylyn.feature.group
+  Subversive connectors:
+    artifacts: http://community.polarion.com/projects/subversive/download/eclipse/2.0/galileo-site/
+    metadata: http://community.polarion.com/projects/subversive/download/eclipse/2.0/galileo-site/
+    iu: org.polarion.eclipse.team.svn.connector.svnkit16.feature.group
+  meta:subversive:
+    depends:
+      add:
+        - Subversive base
+        - Subversive JDT
+        - Subversive Mylyn
+        - Subversive connectors
 
 # jedit :mode=yaml:tabSize=2:indentSize=2:noTabs=true:

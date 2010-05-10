@@ -6,7 +6,8 @@ use subs qw( print_usage );
 use vars qw( $BUILDDIR $DESTSDIR $POOLDIR );
 use YAML ( );
 
-do 'local.config';
+use FindBin;
+do qq{$FindBin::Bin/local.config};
 
 my %cmd_templates = (
 	install => <<'_EOT_',
@@ -42,7 +43,7 @@ _EOT_
 );
 
 
-my $conf = YAML::LoadFile 'config';
+my $conf = YAML::LoadFile "$FindBin::Bin/config";
 run(@ARGV);
 exit 0;
 
