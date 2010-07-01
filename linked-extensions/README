@@ -1,0 +1,95 @@
+Linked extensions
+=================
+
+Installation
+------------
+You need an Eclipse installation that contain at least Eclipse Runtime, to
+install any further plug-ins. The installation should be put into `eclipse'
+folder, next to `script' one.
+
+Also create two directories, `extensions' and `programs', next to `script' one.
+
+Architecture
+------------
+The architecture is loosely based on ideas described on the blog of Michael
+Scharf
+
+  http://michaelscharf.blogspot.com/2009/02/p2-how-i-install-plugins-in-extension.html
+
+but served in a simpler way.
+
+The thing that you run is called a *program*. Each program is a separate Eclipse
+configuration and contains (in `dropins' folder) a set of links to *extensions*.
+The extension is also a configuration, but in most cases devoted to a single
+functionality or plugin (e.g. Subversion functionality plugins).
+
+The relation between programs and extensions is of many-many kind, there is no
+restriction on how many programs use a single extension.
+
+Usage
+-----
+To create a new, empty extension named X1, run
+
+  perl script/new_extension.pl X1
+
+and an Eclipse instance will start. Next, install anything you consider relevant
+to the extension X1 and exit Eclipse.
+
+Do it so for as many extensions as you need.
+
+Then, create a program named P1:
+
+  perl script/new_program.pl P1
+
+and make any extensions you want visible inside it:
+
+  perl script/add_program_extension.pl P1 X1
+  perl script/add_program_extension.pl P1 X2
+  # etc...
+
+when you are done, you can set up another program for different purposes.
+
+To start a specified program P1, just run
+
+  perl script/run_program.pl P1
+
+and see if all the extensions are visible.
+
+Sometimes one extension may depend on the other. So you can also make
+cross-extensions links with `script/add_extension.pl'. Eg. if you want to
+install MTJ plugins, you need JDT. This sequence will do the work:
+
+  perl script/new_extension.pl jdt
+  # ... install JDT ...
+  perl script/new_extension.pl mtj
+  # ... just exit Eclipse ...
+  perl script/add_extension.pl mtj jdt
+  perl script/run_extension.pl mtj
+  # ... and now install MTJ ...
+
+Of course any program using mtj extension will also see jdt extension.
+
+Updates
+-------
+In order to update your installation, do it one extension at a time. DON'T
+upgrade when running a program!
+
+To start a single extension, run
+
+  perl script/run_extension.pl X1
+
+and make any changes you need. When done, any program using modified extension
+should just see changes (e.g. upgraded Subversion plugins).
+
+Bugs and TODO's
+---------------
+
+* Some bell rings about the need to update modification times of .link files
+  in programs' `dropins' folder for Eclipse to spot the update, but I don't
+  remember the source... Just to be sure, run
+  
+    find programs/ extensions/ -name \*.link -exec touch {} \;
+  
+  after you made changes to an upgrade. Rude, but sure.
+
+
